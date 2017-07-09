@@ -81,7 +81,7 @@ public class Router extends HttpServlet {
                     logout(request, response);
                     break;
                 case "deleteTask":
-                    deleteTasK(request, response);
+                    deleteTask(request, response);
                 case "updateTask":
                     updateTask(request, response);
             }
@@ -102,7 +102,7 @@ public class Router extends HttpServlet {
      * @param request
      * @param response
      */
-    public void deleteTasK(HttpServletRequest request, HttpServletResponse response){
+    public void deleteTask(HttpServletRequest request, HttpServletResponse response){
         String itemName = request.getParameter("itemName");
         String description = request.getParameter("description");
 
