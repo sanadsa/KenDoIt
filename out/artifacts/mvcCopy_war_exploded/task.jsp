@@ -22,17 +22,17 @@
         </form>
     </div><!-- /header -->
 
-    <form action="Router" method="post" id="Rouer">
+    <form name="menuRouter" action="Router" method="post" id="Router">
         <div id="actionMenu" data-role="content">
             <div class="ui-grid-b">
                 <div class="ui-block-c">
-                    <button type="submit"  name="addTask" class="action" data-theme="c">Add New Task</button>
+                    <button id="addInput" onclick="setAction('addTask')" type="button" name="addTask" class="action" data-theme="c">Add New Task</button>
                 </div>
                 <div class="ui-block-c">
-                    <button id="updateInput" type="submit"  name="updateTask"  class="updateBtn action"  >Update Task</button>
+                    <button id="updateInput" type="button" onclick="setAction('updateTask')"  name="updateTask"  class="updateBtn action"  >Update Task</button>
                 </div>
                 <div class="ui-block-c">
-                    <button id="deleteInput" type="submit" name="deleteTask"   class="deleteBtn action"  >Delete Task</button>
+                    <button id="deleteInput" type="button" name="deleteTask" onclick="setAction('deleteTask')"  class="deleteBtn action"  >Delete Task</button>
                 </div>
             </div>
         </div>
@@ -56,19 +56,6 @@
     %>
     </ul>
 
-
-    <%--<ul id="myUL" data-role="listview" data-theme="a" data-filter="true">--%>
-        <%--<li data-role="collapsible">--%>
-
-            <%--<h1>Hit gym</h1>--%>
-            <%--<p>bla bal bla .</p>--%>
-
-        <%--</li>--%>
-        <%--<li data-role="collapsible">--%>
-            <%--<h1>Hit gym</h1>--%>
-            <%--<p>bla bal bla .</p>--%>
-        <%--</li>--%>
-    <%--</ul>--%>
     <div data-role="footer" data-theme="b">
         <h6 class="mc-text-center">Copyleft Sanad & Melak <span style="display:inline-block;
   transform: rotate(180deg);" class="copyleft">&copy;</span> 2017</h6>
@@ -76,17 +63,9 @@
 </div><!-- my div-->
 
 
-<!--<div id="myDIV" class="header">
-    <h2>My To Do List</h2>
-    <input type="text" id="myInput" placeholder="Title...">
-    <span onclick="newElement()" class="addBtn">Add</span>
-</div>-->
-
 <script>
     $( document ).ready(function() {
-      $(".action").each(function (e) {
-         setAction(e.value);
-      })
+
         var k=0;
         $(".page").each(function (i,obj) {
             console.debug("i = "+i);
@@ -97,7 +76,8 @@
     });
 
   function setAction(element){
-      $("#dataPage").value = element.value;
+      document.menuRouter.page.value=element;
+      document.menuRouter.submit();
   }
 
     document.querySelector('body').addEventListener('click', function(event) {

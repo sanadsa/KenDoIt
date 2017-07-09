@@ -213,7 +213,7 @@ public class Router extends HttpServlet {
      */
     public void task(HttpServletRequest request, HttpServletResponse response){
         try{
-            String actionTask = request.getParameter("actionTask");
+            String actionTask = request.getParameter("page");
 
             switch (actionTask){
                 case "addTask":
