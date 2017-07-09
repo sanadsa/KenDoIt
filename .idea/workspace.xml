@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb235c7a-16ec-47ef-80f2-37f029596c51" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/mvcCopy_war_exploded/signIn.jsp" afterPath="$PROJECT_DIR$/out/artifacts/mvcCopy_war_exploded/signIn.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/il/ac/hit/mvcdemo/model/Router.java" afterPath="$PROJECT_DIR$/src/il/ac/hit/mvcdemo/model/Router.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/signIn.jsp" afterPath="$PROJECT_DIR$/web/signIn.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -46,7 +43,7 @@
         <entry file="file://$PROJECT_DIR$/web/signIn.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="11" column="43" lean-forward="true" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+              <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -882,12 +879,12 @@
       <workItem from="1499617175725" duration="144000" />
       <workItem from="1499617372031" duration="3987000" />
       <workItem from="1499622269189" duration="2359000" />
-      <workItem from="1499629594076" duration="841000" />
+      <workItem from="1499629594076" duration="1175000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93646000" />
+    <option name="totallyTimeSpent" value="93980000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1386,7 +1383,7 @@
     <entry file="file://$PROJECT_DIR$/web/signIn.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="11" column="43" lean-forward="true" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
           <folding />
         </state>
       </provider>
