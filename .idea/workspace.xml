@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb235c7a-16ec-47ef-80f2-37f029596c51" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/deleteTask.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/updateTask.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/mvcCopy_war_exploded/addTask.jsp" afterPath="$PROJECT_DIR$/out/artifacts/mvcCopy_war_exploded/addTask.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/mvcCopy_war_exploded/signIn.jsp" afterPath="$PROJECT_DIR$/out/artifacts/mvcCopy_war_exploded/signIn.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/mvcCopy_war_exploded/task.jsp" afterPath="$PROJECT_DIR$/out/artifacts/mvcCopy_war_exploded/task.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/il/ac/hit/mvcdemo/model/Router.java" afterPath="$PROJECT_DIR$/src/il/ac/hit/mvcdemo/model/Router.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/addTask.jsp" afterPath="$PROJECT_DIR$/web/addTask.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/signIn.jsp" afterPath="$PROJECT_DIR$/web/signIn.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/task.jsp" afterPath="$PROJECT_DIR$/web/task.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -857,12 +850,20 @@
       <workItem from="1499617175725" duration="144000" />
       <workItem from="1499617372031" duration="3987000" />
       <workItem from="1499622269189" duration="2359000" />
-      <workItem from="1499629594076" duration="3818000" />
+      <workItem from="1499629594076" duration="3999000" />
     </task>
+    <task id="LOCAL-00001" summary="added &quot;deleteTask&quot; and &quot;updateTask&quot; jsp files + added the header and footer of these files">
+      <created>1499633492632</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1499633492632</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96623000" />
+    <option name="totallyTimeSpent" value="96804000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -911,7 +912,8 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="added &quot;deleteTask&quot; and &quot;updateTask&quot; jsp files + added the header and footer of these files" />
+    <option name="LAST_COMMIT_MESSAGE" value="added &quot;deleteTask&quot; and &quot;updateTask&quot; jsp files + added the header and footer of these files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
