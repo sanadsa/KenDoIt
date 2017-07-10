@@ -48,8 +48,14 @@
         {
     %>
     <li data-role="collapsible">
-        <h1><%= (String)items[i].getItemName() %></h1>
-        <p><%= (String)items[i].getDescription() %></p>
+        <div >
+            <h1><%= (String)items[i].getItemName() %></h1>
+
+            <p><%= (String)items[i].getDescription() %></p>
+            <input type="hidden" value=<%= items[i].getId() %>>
+        </div>
+        <a href="#" data-transition="pop" data-icon="gear">Update Task</a>
+
     </li>
     <%
         }
