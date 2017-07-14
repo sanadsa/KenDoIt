@@ -63,7 +63,7 @@
     </ul>
 
     <div data-role="footer" data-theme="b">
-        <h6 class="mc-text-center">Copyleft Sanad & Melak <span style="display:inline-block;
+        <h6 class="mc-text-center">Copyleft SanadS & MelakF <span style="display:inline-block;
   transform: rotate(180deg);" class="copyleft">&copy;</span> 2017</h6>
     </div>
 </div><!-- my div-->
