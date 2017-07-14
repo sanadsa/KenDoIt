@@ -10,25 +10,29 @@
     <title>update task</title>
 </head>
 <body>
+  <%
+      String name=(String)request.getAttribute("name");
+      String des=(String)request.getAttribute("desc");
+  %>
     <div data-role="page">
         <div data-role="header" data-theme="b">
             <h1>Update Task</h1>
         </div><!-- /header -->
 
         <div id="task">
-            <form action="Router" method="post" id="Router">
+            <form action="Router" method="post" name="Router" id="Router">
                 <label for="itemName">Name</label>
-                <input type="text" id="itemName" name="itemName" value="" placeholder="Task name...">
-                <%
-                    int id = Integer.parseInt(request.getParameter("taskId"));
-                    HibernateToDoListDAO htdl = HibernateToDoListDAO.getInstance();
-                    User currentUser = Router.getCurrentUser();
-                    String itemName = htdl.getItem(id);
-                %>
+                <input type="text" id="itemName" name="itemName" value="<%=name%>"  placeholder="Task name...">
                 <label for="description">Description</label>
-                <input  id="description"  name="description" value="" cols="30" rows="10" placeholder="Add description..">
-                <button type="submit" id="createTaskItem" name="actionTask" value="addTask" class="addBtn">Create</button>
-                <input id="dataPage" type="hidden" name="page" value="addTask">
+                <input  id="description"  name="description" value="<%=des%>" cols="30" rows="10" placeholder="Add description..">
+                <button type="submit" id="createTaskItem"
+                        name="actionTask" value="addTask" class="addBtn"
+                        onclick="document.Router.isUpdate='true';document.isUpdate.submit();"
+                >
+                    Update
+                </button>
+                <input id="dataPage" type="hidden" name="page" value="updateTask">
+                <input id="isUpdate" type="hidden" name="isUpdate" value="false">
             </form>
         </div>
 

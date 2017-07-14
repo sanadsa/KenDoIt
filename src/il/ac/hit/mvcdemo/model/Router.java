@@ -2,6 +2,8 @@ package il.ac.hit.mvcdemo.model;
 
 //import il.ac.hit.mvcdemo.model.*;
 
+import org.hibernate.test.cache.Item;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -125,18 +127,29 @@ public class Router extends HttpServlet {
      * @param response
      */
     public void updateTask(HttpServletRequest request, HttpServletResponse response){
-        String itemName = request.getParameter("itemName");
-        String newDescription = request.getParameter("newDescription");
+        String taskId = request.getParameter("taskId");
+        String isUpdate = request.getParameter("isUpdate");
+        int id=Integer.parseInt(taskId);
+        if (id>0) {
+            Items editItem=htdl.getItem(id);
+            request.setAttribute("name",editItem.getItemName());
+            request.setAttribute("desc",editItem.getDescription());
+            if (isUpdate.equals("true")) {
+                String itemName = request.getParameter("itemName");
+                String newDescription = request.getParameter("newDescription");
 
-        if(itemName != null && newDescription != null){
-            if(!itemName.equals("") && !newDescription.equals("")){
-                Items item = new Items(itemName, newDescription, globalUser.getUserId());
-                htdl.updateItem(item, item.getId());
-                isSuccess = true;
-                linkTo = "task";
+                if (itemName != null && newDescription != null) {
+                    if (!itemName.equals("") && !newDescription.equals("")) {
+                        Items item = new Items(itemName, newDescription, globalUser.getUserId());
+                        htdl.updateItem(item, item.getId());
+                        isSuccess = true;
+                        linkTo = "task";
+                    }
             }
-        } else{
-            linkTo = "deleteTask";
+
+            } else {
+                linkTo = "deleteTask";
+            }
         }
     }
 

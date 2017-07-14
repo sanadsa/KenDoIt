@@ -3,8 +3,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <title>ToDoList</title>
 </head>
 <body>
@@ -14,6 +14,7 @@
             <button data-role="button" data-icon="home" data-iconpos="left">back</button>
             <input id="back" type="hidden" name="page" value="main">
         </form>
+    </div>
         <h1>Just Do It</h1>
     <form id="Router" action="Router" method="post">
         <div role="main" class="ui-content">
@@ -42,7 +43,6 @@
         </div><!-- /content -->
         <input id="dataPage" type="hidden" name="page" value="signUp">
     </form>
-    </div>
     <div data-role="footer" data-theme="b">
         <h6 class="mc-text-center">Copyleft Sanad & Melak <span style="display:inline-block;
   transform: rotate(180deg);" class="copyleft">&copy;</span> 2017</h6>

@@ -8,9 +8,9 @@
 <head>
     <title>Welcome</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
 <div data-role="page" id="myDIV"><!-- my div-->
@@ -22,44 +22,46 @@
         </form>
     </div><!-- /header -->
 
-    <form name="menuRouter" action="Router" method="post" id="Router">
         <div id="actionMenu" data-role="content">
             <div class="ui-grid-b">
                 <div class="ui-block-c">
-                    <button id="addInput" onclick="setAction('addTask')" type="button" name="addTask" class="action" data-theme="c">Add New Task</button>
+                <form action="Router" method="post">
+                    <button id="addInput"  type="submit" name="addTask" class="action" data-theme="c">Add New Task</button>
+                    <input  type="hidden" name="page" value="addTask">
+                </form>
                 </div>
                 <div class="ui-block-c">
-                    <button id="updateInput" type="button" onclick="setAction('updateTask')"  name="updateTask"  class="updateBtn action"  >Update Task</button>
+                <form action="Router" method="post">
+                    <button id="updateInput" type="submit"  name="updateTask" onclick="getSelectedTask()"  class="updateBtn action"  >Update Task</button>
+                    <input  type="hidden" name="page" value="updateTask">
+                    <input  type="hidden"  name="update" value="" id="taskId">
+                </form>
                 </div>
                 <div class="ui-block-c">
-                    <button id="deleteInput" type="button" name="deleteTask" onclick="setAction('deleteTask')"  class="deleteBtn action"  >Delete Task</button>
+                <form action="Router" method="post">
+                    <button id="deleteInput" type="submit" name="deleteTask"   class="deleteBtn action"  >Delete Task</button>
+                    <input  type="hidden" name="page" value="deleteTask">
+                </form>
                 </div>
             </div>
         </div>
-        <input id="dataPage" type="hidden" name="page" value="">
-    </form>
+
 
     <ul id="myUL" data-role="listview" data-theme="a" data-filter="true">
-    <%
-        HibernateToDoListDAO htdl = HibernateToDoListDAO.getInstance();
-        User currentUser = Router.getCurrentUser();
-        Items [] items=htdl.getItems(currentUser);
-        for(int i=0; i<items.length; i++)
-        {
-    %>
-    <li data-role="collapsible">
-        <div >
+        <%
+            HibernateToDoListDAO htdl = HibernateToDoListDAO.getInstance();
+            User currentUser = Router.getCurrentUser();
+            Items [] items=htdl.getItems(currentUser);
+            for(int i=0; i<items.length; i++)
+            {
+        %>
+        <li data-role="collapsible" id="<%= items[i].getId()%>">
             <h1><%= (String)items[i].getItemName() %></h1>
-
             <p><%= (String)items[i].getDescription() %></p>
-            <input type="hidden" value=<%= items[i].getId() %>>
-        </div>
-        <a href="#" data-transition="pop" data-icon="gear">Update Task</a>
-
-    </li>
-    <%
-        }
-    %>
+        </li>
+        <%
+            }
+        %>
     </ul>
 
     <div data-role="footer" data-theme="b">
@@ -70,8 +72,18 @@
 
 
 <script>
+    var currentSelectedTask;
+    function getSelectedTask(){
+        if(currentSelectedTask!=null && currentSelectedTask!= undefined)
+        {
+            alert("update=====> ",currentSelectedTask);
+            $('#taskId').val(currentSelectedTask);
+        }
+    }
     $( document ).ready(function() {
-
+        $("li").click(function (e) {
+            setAction($(this));
+        })
         var k=0;
         $(".page").each(function (i,obj) {
             console.debug("i = "+i);
@@ -81,10 +93,10 @@
         });
     });
 
-  function setAction(element){
-      document.menuRouter.page.value=element;
-      document.menuRouter.submit();
-  }
+    function setAction(element){
+        alert.log("element: "+element);
+        currentSelectedTask=element.id();
+    }
 
     document.querySelector('body').addEventListener('click', function(event) {
         if (event.target.tagName.toLowerCase() === 'a') {
@@ -121,7 +133,7 @@
         }
 
     }
-     
+
     function openDialog() {
         var form=$("#task").fadeIn(2000);
     }

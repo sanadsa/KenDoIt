@@ -13,12 +13,17 @@
         <h1>Add New Task</h1>
     </div><!-- /header -->
 
-    <div id="task">
+    <div id="task"  data-role="main">
         <form action="Router" method="post" id="Router">
-            <label for="itemName">Name</label>
-            <input type="text" id="itemName" name="itemName" value="" placeholder="Task name...">
-            <label for="description">Description</label>
-            <input  id="description"  name="description" value="" cols="30" rows="10" placeholder="Add description..">
+            <div>
+                <label for="itemName">Name</label>
+                <input type="text" id="itemName" name="itemName" value="" placeholder="Task name...">
+            </div>
+           <div>
+               <label for="description">Description</label>
+               <input  id="description"  name="description" value="" cols="30" rows="10" placeholder="Add description..">
+           </div>
+
             <button type="submit" id="createTaskItem" name="actionTask" value="addTask" class="addBtn">Create</button>
             <input id="dataPage" type="hidden" name="page" value="addTask">
         </form>
