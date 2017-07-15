@@ -84,8 +84,10 @@ public class Router extends HttpServlet {
                     break;
                 case "deleteTask":
                     deleteTask(request, response);
+                    break;
                 case "updateTask":
                     updateTask(request, response);
+                    break;
             }
             if (linkTo!=null) {
                 //dispatcher = request.getRequestDispatcher("task.jsp");
@@ -105,18 +107,26 @@ public class Router extends HttpServlet {
      * @param response
      */
     public void deleteTask(HttpServletRequest request, HttpServletResponse response){
-        String itemName = request.getParameter("itemName");
-        String description = request.getParameter("description");
+        String taskId = request.getParameter("delete");
+        String isDelete = request.getParameter("isDelete");
 
-        if(itemName != null){
-            if(!itemName.equals("")){
-                Items item = new Items(itemName, description, globalUser.getUserId());
-                htdl.deleteItem(item.getId());
+        if (taskId != null && !taskId.equals("")) {
+            Integer id = Integer.parseInt(taskId);
+            Items deleteItem = htdl.getItem(id);
+            request.setAttribute("taskName", deleteItem.getItemName());
+            request.setAttribute("description", deleteItem.getDescription());
+            request.setAttribute("taskId", ((Integer)deleteItem.getId()).toString());
+            linkTo = "deleteTask";
+        }
+        if (isDelete != null && isDelete.equals("true")) {
+//            String itemName = request.getParameter("itemName");
+//            String description = request.getParameter("description");
+            Integer deleteId = Integer.parseInt(request.getParameter("deleteId"));
+            if (deleteId != null) {
+                htdl.deleteItem(deleteId);
                 isSuccess = true;
                 linkTo = "task";
             }
-        } else{
-            linkTo = "deleteTask";
         }
     }
 
@@ -129,7 +139,8 @@ public class Router extends HttpServlet {
     public void updateTask(HttpServletRequest request, HttpServletResponse response){
         String taskId = request.getParameter("update");
         String isUpdate = request.getParameter("isUpdate");
-        if (taskId != null) {
+
+        if (taskId != null && !taskId.equals("")) {
             Integer id=Integer.parseInt(taskId);
             Items editItem = htdl.getItem(id);
             request.setAttribute("name", editItem.getItemName());

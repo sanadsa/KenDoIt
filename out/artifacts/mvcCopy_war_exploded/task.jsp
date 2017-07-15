@@ -32,15 +32,16 @@
                 </div>
                 <div class="ui-block-c">
                 <form action="Router" method="post">
-                    <button id="updateInput" type="submit"  name="updateTask" onclick="getSelectedTask()"  class="updateBtn action"  >Update Task</button>
+                    <button id="updateInput" type="submit"  name="updateTask" onclick="getSelectedTask()"  class="updateBtn action">Update Task</button>
                     <input  type="hidden" name="page" value="updateTask">
                     <input  type="hidden"  name="update" value="" id="taskId">
                 </form>
                 </div>
                 <div class="ui-block-c">
                 <form action="Router" method="post">
-                    <button id="deleteInput" type="submit" name="deleteTask"   class="deleteBtn action"  >Delete Task</button>
+                    <button id="deleteInput" type="submit" name="deleteTask" onclick="getSelectedTask()" class="deleteBtn action">Delete Task</button>
                     <input  type="hidden" name="page" value="deleteTask">
+                    <input  type="hidden" name="delete" value="" id="taskDeleteId">
                 </form>
                 </div>
             </div>
@@ -74,14 +75,26 @@
     var currentSelectedTask;
 
     $( document ).ready(function() {
-        $("li").click(function (e) {
+//        $("li").click(function (e) {
+//            setAction($(this)[0]);
+//            if($(this).css("backgroud-color") == "#2ad") {
+//                $(this).css("backgroud-color", "#f6f6f6");
+//            }else{
+//                $(this).css("backgroud-color", "#2ad");
+//            }
+//        })
+        $("li").click(function(){
             setAction($(this)[0]);
-            if($(this).css("backgroud-color") == "#2ad") {
-                $(this).css("backgroud-color", "#f6f6f6");
-            }else{
-                $(this).css("backgroud-color", "#2ad");
+            if ($(this).css("background-color") === "rgba(0, 0, 0, 0)") {
+                $(this).css("background-color", "rgb(23, 150, 207)");
+            } else {
+                $(this).css("background-color", "rgba(0, 0, 0, 0)");
             }
-        })
+            for(var i=0;i<$("li").length;i++){
+                if($("li")[i]!=$(this)[0])
+                    $($("li")[i]).css("background-color", "rgba(0, 0, 0, 0)");
+            }
+        });
         var k=0;
         $(".page").each(function (i,obj) {
             console.debug("i = "+i);
@@ -95,10 +108,11 @@
         {
             console.log("update=====> "+currentSelectedTask);
             $('#taskId').val(currentSelectedTask);
+            $('#taskDeleteId').val(currentSelectedTask);
         }
     };
     function setAction(element){
-        currentSelectedTask=element.id;
+        currentSelectedTask = element.id;
 
     };
 

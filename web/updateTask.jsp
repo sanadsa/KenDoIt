@@ -35,7 +35,7 @@
                 <input id="isUpdate" type="hidden" name="isUpdate" value="true">
                 <input id="taskId" type="hidden" name="taskId" value="<%=taskId%>">
             </form>
-        </div>
+        </div><!-- /task -->
 
         <div data-role="footer" data-theme="b">
             <h6 class="mc-text-center">Copyleft Sanad & Melak <span style="display:inline-block;
