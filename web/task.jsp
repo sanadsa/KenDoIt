@@ -46,7 +46,6 @@
             </div>
         </div>
 
-
     <ul id="myUL" data-role="listview" data-theme="a" data-filter="true">
         <%
             HibernateToDoListDAO htdl = HibernateToDoListDAO.getInstance();
