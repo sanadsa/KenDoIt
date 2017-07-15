@@ -127,28 +127,27 @@ public class Router extends HttpServlet {
      * @param response
      */
     public void updateTask(HttpServletRequest request, HttpServletResponse response){
-        String taskId = request.getParameter("taskId");
+        String taskId = request.getParameter("update");
         String isUpdate = request.getParameter("isUpdate");
-        int id=Integer.parseInt(taskId);
-        if (id>0) {
-            Items editItem=htdl.getItem(id);
-            request.setAttribute("name",editItem.getItemName());
-            request.setAttribute("desc",editItem.getDescription());
-            if (isUpdate.equals("true")) {
-                String itemName = request.getParameter("itemName");
-                String newDescription = request.getParameter("newDescription");
-
-                if (itemName != null && newDescription != null) {
-                    if (!itemName.equals("") && !newDescription.equals("")) {
-                        Items item = new Items(itemName, newDescription, globalUser.getUserId());
-                        htdl.updateItem(item, item.getId());
-                        isSuccess = true;
-                        linkTo = "task";
-                    }
+        if (taskId != null) {
+            Integer id=Integer.parseInt(taskId);
+            Items editItem = htdl.getItem(id);
+            request.setAttribute("name", editItem.getItemName());
+            request.setAttribute("desc", editItem.getDescription());
+            request.setAttribute("taskId", ((Integer)editItem.getId()).toString());
+            linkTo = "updateTask";
             }
-
-            } else {
-                linkTo = "deleteTask";
+        if (isUpdate != null && isUpdate.equals("true")) {
+            String itemName = request.getParameter("itemName");
+            String newDescription = request.getParameter("newDescription");
+            Integer updateId = Integer.parseInt(request.getParameter("taskId"));
+            if (itemName != null && newDescription != null && updateId != null) {
+                if (!itemName.equals("") && !newDescription.equals("")) {
+                    Items item = new Items(itemName, newDescription, globalUser.getUserId());
+                    htdl.updateItem(item, updateId);
+                    isSuccess = true;
+                    linkTo = "task";
+                }
             }
         }
     }

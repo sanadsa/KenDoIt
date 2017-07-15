@@ -12,8 +12,9 @@
 </head>
 <body>
   <%
-      String name=(String)request.getAttribute("name");
-      String des=(String)request.getAttribute("desc");
+      String name = (String)request.getAttribute("name");
+      String des = (String)request.getAttribute("desc");
+      String taskId = (String)request.getAttribute("taskId");
   %>
     <div data-role="page">
         <div data-role="header" data-theme="b">
@@ -23,16 +24,16 @@
         <div id="task">
             <form action="Router" method="post" name="Router" id="Router">
                 <label for="itemName">Name</label>
-                <input type="text" id="itemName" name="itemName" value="<%=name%>"  placeholder="Task name...">
+                <input type="text" id="itemName" name="itemName" value="<%=name%>">
                 <label for="description">Description</label>
-                <input  id="description"  name="description" value="<%=des%>" cols="30" rows="10" placeholder="Add description..">
+                <input  id="description"  name="newDescription" value="<%=des%>" cols="30" rows="10">
                 <button type="submit" id="createTaskItem"
-                        name="actionTask" value="addTask" class="addBtn"
-                        onclick="document.Router.isUpdate='true';document.isUpdate.submit();">
+                        name="actionTask" value="addTask" class="addBtn">
                     Update
                 </button>
                 <input id="dataPage" type="hidden" name="page" value="updateTask">
-                <input id="isUpdate" type="hidden" name="isUpdate" value="false">
+                <input id="isUpdate" type="hidden" name="isUpdate" value="true">
+                <input id="taskId" type="hidden" name="taskId" value="<%=taskId%>">
             </form>
         </div>
 

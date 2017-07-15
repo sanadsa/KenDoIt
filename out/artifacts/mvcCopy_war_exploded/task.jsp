@@ -46,12 +46,11 @@
             </div>
         </div>
 
-
     <ul id="myUL" data-role="listview" data-theme="a" data-filter="true">
         <%
             HibernateToDoListDAO htdl = HibernateToDoListDAO.getInstance();
             User currentUser = Router.getCurrentUser();
-            Items [] items=htdl.getItems(currentUser);
+            Items [] items=htdl.getItems(currentUser) ;
             for(int i=0; i<items.length; i++)
             {
         %>
@@ -73,16 +72,15 @@
 
 <script>
     var currentSelectedTask;
-    function getSelectedTask(){
-        if(currentSelectedTask!=null && currentSelectedTask!= undefined)
-        {
-            alert("update=====> ",currentSelectedTask);
-            $('#taskId').val(currentSelectedTask);
-        }
-    }
+
     $( document ).ready(function() {
         $("li").click(function (e) {
-            setAction($(this));
+            setAction($(this)[0]);
+            if($(this).css("backgroud-color") == "#2ad") {
+                $(this).css("backgroud-color", "#f6f6f6");
+            }else{
+                $(this).css("backgroud-color", "#2ad");
+            }
         })
         var k=0;
         $(".page").each(function (i,obj) {
@@ -92,11 +90,17 @@
             }
         });
     });
-
+    function getSelectedTask(){
+        if(currentSelectedTask!=null && currentSelectedTask!= undefined)
+        {
+            console.log("update=====> "+currentSelectedTask);
+            $('#taskId').val(currentSelectedTask);
+        }
+    };
     function setAction(element){
-        alert.log("element: "+element);
-        currentSelectedTask=element.id();
-    }
+        currentSelectedTask=element.id;
+
+    };
 
     document.querySelector('body').addEventListener('click', function(event) {
         if (event.target.tagName.toLowerCase() === 'a') {

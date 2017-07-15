@@ -157,8 +157,8 @@ public class HibernateToDoListDAO implements IToDoListDAO, IUserDAO
 
     /**
      * Updates an item in the Database
-     *
-     * @param item the item we want to update
+     * @param itemId the id of the item we want to update
+     * @param item the updated item
      * @throws ToDoListException
      */
     @Override
@@ -166,6 +166,7 @@ public class HibernateToDoListDAO implements IToDoListDAO, IUserDAO
     {
         session = factory.openSession();
         String description = item.getDescription();
+        String name = item.getItemName();
 
         try
         {
@@ -179,6 +180,7 @@ public class HibernateToDoListDAO implements IToDoListDAO, IUserDAO
             if (item != null)
             {
                 item.setDescription(description);
+                item.setItemName(name);
                 session.update(item);
                 session.getTransaction().commit();
             }
