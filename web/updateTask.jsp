@@ -1,6 +1,7 @@
 <%@ page import="il.ac.hit.mvcdemo.model.Router" %>
 <%@ page import="il.ac.hit.mvcdemo.model.HibernateToDoListDAO" %>
 <%@ page import="il.ac.hit.mvcdemo.model.User" %>
+<%@ page import="il.ac.hit.mvcdemo.model.Items" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -27,8 +28,7 @@
                 <input  id="description"  name="description" value="<%=des%>" cols="30" rows="10" placeholder="Add description..">
                 <button type="submit" id="createTaskItem"
                         name="actionTask" value="addTask" class="addBtn"
-                        onclick="document.Router.isUpdate='true';document.isUpdate.submit();"
-                >
+                        onclick="document.Router.isUpdate='true';document.isUpdate.submit();">
                     Update
                 </button>
                 <input id="dataPage" type="hidden" name="page" value="updateTask">
