@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fb235c7a-16ec-47ef-80f2-37f029596c51" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/mvcCopy_war_exploded/addTask.jsp" afterPath="$PROJECT_DIR$/out/artifacts/mvcCopy_war_exploded/addTask.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/mvcCopy_war_exploded/signUp.jsp" afterPath="$PROJECT_DIR$/out/artifacts/mvcCopy_war_exploded/signUp.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/mvcCopy_war_exploded/task.jsp" afterPath="$PROJECT_DIR$/out/artifacts/mvcCopy_war_exploded/task.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/il/ac/hit/mvcdemo/model/Router.java" afterPath="$PROJECT_DIR$/src/il/ac/hit/mvcdemo/model/Router.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/addTask.jsp" afterPath="$PROJECT_DIR$/web/addTask.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/signUp.jsp" afterPath="$PROJECT_DIR$/web/signUp.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/task.jsp" afterPath="$PROJECT_DIR$/web/task.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/updateTask.jsp" afterPath="$PROJECT_DIR$/web/updateTask.jsp" />
-    </list>
+    <list default="true" id="fb235c7a-16ec-47ef-80f2-37f029596c51" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -853,7 +843,7 @@
       <workItem from="1499682966776" duration="297000" />
       <workItem from="1499714757745" duration="4132000" />
       <workItem from="1499943676116" duration="348000" />
-      <workItem from="1500061712328" duration="9683000" />
+      <workItem from="1500061712328" duration="10259000" />
     </task>
     <task id="LOCAL-00001" summary="added &quot;deleteTask&quot; and &quot;updateTask&quot; jsp files + added the header and footer of these files">
       <created>1499633492632</created>
@@ -866,11 +856,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112516000" />
+    <option name="totallyTimeSpent" value="113092000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -892,7 +881,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15548281" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15548281" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.7552" order="0" side_tool="false" content_ui="combo" />
