@@ -10,7 +10,7 @@
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <title>update task</title>
 </head>
-<body>
+<body onload="alert('load update');">
   <%
       String name = (String)request.getAttribute("name");
       String des = (String)request.getAttribute("desc");
@@ -22,7 +22,7 @@
         </div><!-- /header -->
 
         <div id="task">
-            <form action="Router" method="post" name="Router" id="Router">
+            <form action="Router" method="get" name="Router" id="Router">
                 <label for="itemName">Name</label>
                 <input type="text" id="itemName" name="itemName" value="<%=name%>">
                 <label for="description">Description</label>
@@ -32,7 +32,7 @@
                     Update
                 </button>
                 <input id="dataPage" type="hidden" name="page" value="updateTask">
-                <input id="isUpdate" type="hidden" name="isUpdate" value="true">
+                <input id="isUpdate" type="hidden" name="isUpdate" value="task">
                 <input id="taskId" type="hidden" name="taskId" value="<%=taskId%>">
             </form>
         </div><!-- /task -->

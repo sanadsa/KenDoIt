@@ -27,8 +27,20 @@ public class Router extends HttpServlet {
     private static final long serialVersionUID = 1L;
     boolean isSuccess=false;
     private String linkTo;
+    //creating the instance for the DAO object.
     HibernateToDoListDAO htdl = HibernateToDoListDAO.getInstance();
     static User globalUser;
+
+    /**
+     * Servlet init() method implementation
+     * @see HttpServlet#init()
+     */
+    @Override
+    public void init() throws ServletException
+    {
+        super.init();
+    }
+
 
     /**
      * return the user that is signed in
@@ -53,14 +65,23 @@ public class Router extends HttpServlet {
         doGet(request, response);
     }
 
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         RequestDispatcher dispatcher = null;
 
         try{
-            StringBuffer sb = request.getRequestURL();
-            StringTokenizer tokenizer = new StringTokenizer(sb.toString(), "/");
             String actionToDo = request.getParameter("page");
+
+            if (actionToDo == null){
+                actionToDo = "task";
+            }
 
             switch (actionToDo)
             {
@@ -90,13 +111,16 @@ public class Router extends HttpServlet {
                     break;
             }
             if (linkTo!=null) {
-                //dispatcher = request.getRequestDispatcher("task.jsp");
-                dispatcher = request.getRequestDispatcher(linkTo + ".jsp");
-                dispatcher.forward(request, response);
+                response.sendRedirect(linkTo + ".jsp");
+               // dispatcher = request.getRequestDispatcher(linkTo + ".jsp");
+               // dispatcher.forward(request, response);
             }
 
         } catch (SecurityException | IllegalArgumentException e) {
             e.printStackTrace();
+
+            dispatcher = request.getRequestDispatcher("error.jsp");
+            dispatcher.forward(request, response);
         }
     }
 
@@ -148,7 +172,7 @@ public class Router extends HttpServlet {
             request.setAttribute("taskId", ((Integer)editItem.getId()).toString());
             linkTo = "updateTask";
             }
-        if (isUpdate != null && isUpdate.equals("true")) {
+        if (isUpdate != null && isUpdate.equals("task")) {
             String itemName = request.getParameter("itemName");
             String newDescription = request.getParameter("newDescription");
             Integer updateId = Integer.parseInt(request.getParameter("taskId"));
@@ -237,7 +261,9 @@ public class Router extends HttpServlet {
     public void task(HttpServletRequest request, HttpServletResponse response){
         try{
             String actionTask = request.getParameter("page");
-
+            if (actionTask ==null){
+                linkTo="task";
+            }
             switch (actionTask){
                 case "addTask":
                     linkTo = "addTask";
