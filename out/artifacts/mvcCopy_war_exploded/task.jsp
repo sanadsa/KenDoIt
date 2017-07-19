@@ -7,7 +7,7 @@
 <html>
 <head>
     <title>task</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport"  content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -93,7 +93,7 @@
     function getSelectedTask(){
         if(currentSelectedTask!=null && currentSelectedTask!= undefined)
         {
-            console.log("update=====> "+currentSelectedTask);
+            console.log("update =====> "+currentSelectedTask);
             $('#taskId').val(currentSelectedTask);
             $('#taskDeleteId').val(currentSelectedTask);
         }
@@ -102,7 +102,6 @@
         currentSelectedTask = element.id;
 
     };
-
 
     function openDialog() {
         var form=$("#task").fadeIn(2000);

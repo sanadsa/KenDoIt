@@ -1,13 +1,13 @@
-<%@ page import="il.ac.hit.mvcdemo.model.Router" %>
-<%@ page import="il.ac.hit.mvcdemo.model.HibernateToDoListDAO" %>
-<%@ page import="il.ac.hit.mvcdemo.model.User" %>
-<%@ page import="il.ac.hit.mvcdemo.model.Items" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <%@ page import="il.ac.hit.mvcdemo.model.Router" %>
+    <%@ page import="il.ac.hit.mvcdemo.model.HibernateToDoListDAO" %>
+    <%@ page import="il.ac.hit.mvcdemo.model.User" %>
+    <%@ page import="il.ac.hit.mvcdemo.model.Items" %>
+    <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+    <html>
+    <head>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <title>update task</title>
 </head>
 <body onload="alert('load update');">

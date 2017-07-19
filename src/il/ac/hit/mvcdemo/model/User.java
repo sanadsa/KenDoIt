@@ -1,5 +1,7 @@
 package il.ac.hit.mvcdemo.model;
 
+import java.lang.NullPointerException;
+
 /**
  * Class for the user
  * @author Sanad Satel , Melak Firdo
@@ -14,15 +16,27 @@ public class User
     private String email;
 
     /**
-     * constructor that initializes the user with name and password
+     * constructor that initializes the user data member in case one of the values  is null throw null pointer exception
      * @param userFirstName
+     * @param userLastName
      * @param userPassword
+     * @param userEmail
+     * @throws NullPointerException
      */
-    public User(String userFirstName, String userLastName, String userPassword, String userEmail) {
-        this.userFirstName = userFirstName;
-        this.userLastName = userLastName;
-        this.userPassword = userPassword;
-        this.email = userEmail;
+    public User(String userFirstName, String userLastName, String userPassword, String userEmail)throws NullPointerException {
+        this();
+        try
+        {
+            this.setUserFirstName(userFirstName);
+            this.setUserLastName(userLastName);
+            this.setEmail(userEmail);
+            this.setUserPassword(userPassword);
+        }
+        catch (NullPointerException ex)
+        {
+            ex.printStackTrace();
+        }
+
     }
 
     /**
@@ -38,12 +52,23 @@ public class User
         return userId;
     }
 
+
     /**
-     * sets user id
+     * set userId in case value is null throw null pointer exception
+     *  case negative number throws illegal  argument exception
      * @param userId
+     * @throws NullPointerException
+     * @throws IllegalArgumentException
      */
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUserId(int userId) throws NullPointerException, IllegalArgumentException {
+        try{
+            if (userId>0){ this.userId= userId;}
+            else{throw new IllegalArgumentException
+                    ("value must be non-negative");}
+
+        }
+        catch (NullPointerException ex){ex.printStackTrace();}
+        catch (IllegalArgumentException ex){ex.printStackTrace();}
     }
 
     /**
@@ -55,28 +80,27 @@ public class User
     }
 
     /**
-     * set user first name
+     * set user first name in case value is null throw null pointer exception
      * @param userFirstName
+     * @throws NullPointerException
      */
-    public void setUserFirstName(String userFirstName) {
-        this.userFirstName = userFirstName;
+    public void setUserFirstName(String userFirstName) throws NullPointerException {
+        try{this.userFirstName= userFirstName;}catch (NullPointerException ex){ex.printStackTrace();}
     }
 
     /**
      * gets the last name
      * @return String last name
      */
-    public String getUserLastName() {
-        return userLastName;
-    }
+    public String getUserLastName() {return userLastName;}
 
     /**
-     * set user name
+     * set last name in case value is null throw null pointer exception
      * @param userLastName
+     * @throws NullPointerException
      */
-    public void setUserLastName(String userLastName) {
-        this.userLastName = userLastName;
-    }
+    public void setUserLastName(String userLastName)throws NullPointerException{
+            try{this.userLastName= userLastName;}catch (NullPointerException ex){ex.printStackTrace();}}
 
     /**
      * gets user email
@@ -87,12 +111,12 @@ public class User
     }
 
     /**
-     * set user email
+     * set last email in case value is null throw null pointer exception
      * @param email
+     * @throws NullPointerException
      */
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    public void setEmail(String email)throws NullPointerException{
+        try{this.email= email;}catch (NullPointerException ex){ex.printStackTrace();}}
 
     /**
      * gets user password
@@ -103,12 +127,12 @@ public class User
     }
 
     /**
-     * sets user's password
+     * set password in case value is null throw null pointer exception
      * @param userPassword
+     * @throws NullPointerException
      */
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
-    }
+    public void setUserPassword(String userPassword)throws NullPointerException{
+        try{this.userPassword= userPassword;}catch (NullPointerException ex){ex.printStackTrace();}}
 
     /**
      *implements toString method
