@@ -111,9 +111,9 @@ public class Router extends HttpServlet {
                     break;
             }
             if (linkTo!=null) {
-                response.sendRedirect(linkTo + ".jsp");
-               // dispatcher = request.getRequestDispatcher(linkTo + ".jsp");
-               // dispatcher.forward(request, response);
+                //response.sendRedirect(linkTo + ".jsp");
+                dispatcher = request.getRequestDispatcher(linkTo + ".jsp");
+                dispatcher.forward(request, response);
             }
 
         } catch (SecurityException | IllegalArgumentException e) {
@@ -260,6 +260,7 @@ public class Router extends HttpServlet {
      */
     public void task(HttpServletRequest request, HttpServletResponse response){
         try{
+            //response.sendRedirect("test.js");
             String actionTask = request.getParameter("page");
             if (actionTask ==null){
                 linkTo="task";
@@ -296,7 +297,7 @@ public class Router extends HttpServlet {
                 linkTo = "task";
                 globalUser = htdl.getUser(email);
             }
-        }catch (ToDoListException se){
+        }catch (ToDoListException se) {
             se.printStackTrace();
         }
     }

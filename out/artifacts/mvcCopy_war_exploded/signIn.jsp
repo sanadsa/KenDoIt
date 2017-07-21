@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="test.js"></script>
     <title>ToDoList</title>
 </head>
 <body>
@@ -17,7 +18,7 @@
         <h1>Just Do It</h1>
     </div>
 
-    <form id="Router" action="Router" method="get">
+    <form id="Router" action="http://localhost:8080/task.jsp" method="get">
         <div role="main" class="ui-content">
             <h3>Sign In</h3>
             <label for="txt-email">Email Address</label>

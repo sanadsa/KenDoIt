@@ -92,7 +92,7 @@ public class Items
      */
     public void setDescription(String description)throws NullPointerException {
         try {
-            this.itemName = itemName;
+            this.description = description;
         } catch (NullPointerException ex) {
             ex.printStackTrace();
         }
