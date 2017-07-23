@@ -12,12 +12,14 @@
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
-<body onload="alert('load task');">
+<body >
 <div data-role="page" id="myDIV"><!-- my div-->
     <div data-role="header" data-theme="b">
         <h1>Just Do It</h1>
-        <form action="Router" method="get">
-            <button type="submit"  data-role="button" id="button_logout" data-icon="false" data-iconpos="false" class="ui-btn-right">logout</button>
+        <form action="Router" name="logOut" method="get">
+            <button type="button"  data-role="button" id="button_logout" data-icon="false"
+                    data-iconpos="false" class="ui-btn-right"
+                    onclick="{document.logOut.submit();}">logout</button>
             <input type="hidden" name="page" value="logout" />
         </form>
     </div><!-- /header -->
@@ -75,7 +77,7 @@
     var currentSelectedTask;
 
     $( document ).ready(function() {
-       alert("task ready");
+
     });
 
     $("li").click(function(){

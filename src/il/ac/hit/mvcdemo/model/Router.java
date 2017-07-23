@@ -79,7 +79,7 @@ public class Router extends HttpServlet {
         try{
             String actionToDo = request.getParameter("page");
 
-            if (actionToDo == null){
+            if (actionToDo == null || actionToDo == "" || actionToDo.equals("")){
                 actionToDo = "task";
             }
 
@@ -142,16 +142,21 @@ public class Router extends HttpServlet {
             request.setAttribute("taskId", ((Integer)deleteItem.getId()).toString());
             linkTo = "deleteTask";
         }
+
         if (isDelete != null && isDelete.equals("true")) {
-//            String itemName = request.getParameter("itemName");
-//            String description = request.getParameter("description");
-            Integer deleteId = Integer.parseInt(request.getParameter("deleteId"));
-            if (deleteId != null) {
-                htdl.deleteItem(deleteId);
-                isSuccess = true;
+            if (request.getParameter("flag").equals("canceled")) {
                 linkTo = "task";
             }
+            else {
+                Integer deleteId = Integer.parseInt(request.getParameter("deleteId"));
+                if (deleteId != null) {
+                    htdl.deleteItem(deleteId);
+                    isSuccess = true;
+                    linkTo = "task";
+                }
+            }
         }
+
     }
 
     /**
@@ -173,15 +178,20 @@ public class Router extends HttpServlet {
             linkTo = "updateTask";
             }
         if (isUpdate != null && isUpdate.equals("task")) {
-            String itemName = request.getParameter("itemName");
-            String newDescription = request.getParameter("newDescription");
-            Integer updateId = Integer.parseInt(request.getParameter("taskId"));
-            if (itemName != null && newDescription != null && updateId != null) {
-                if (!itemName.equals("") && !newDescription.equals("")) {
-                    Items item = new Items(itemName, newDescription, globalUser.getUserId());
-                    htdl.updateItem(item, updateId);
-                    isSuccess = true;
-                    linkTo = "task";
+            if (request.getParameter("flag").equals("canceled")) {
+                linkTo = "task";
+            }
+            else {
+                String itemName = request.getParameter("itemName");
+                String newDescription = request.getParameter("newDescription");
+                Integer updateId = Integer.parseInt(request.getParameter("taskId"));
+                if (itemName != null && newDescription != null && updateId != null) {
+                    if (!itemName.equals("") && !newDescription.equals("")) {
+                        Items item = new Items(itemName, newDescription, globalUser.getUserId());
+                        htdl.updateItem(item, updateId);
+                        isSuccess = true;
+                        linkTo = "task";
+                    }
                 }
             }
         }
@@ -209,10 +219,15 @@ public class Router extends HttpServlet {
 
         if(itemName!=null && description!=null){
             if(!itemName.equals("") && !description.equals("")) {
-                Items item = new Items(itemName, description, globalUser.getUserId());
-                htdl.addItem(item);
-                isSuccess = true;
-                linkTo = "task";
+                if (request.getParameter("flag").equals("canceled")) {
+                    linkTo = "task";
+                }
+                else {
+                    Items item = new Items(itemName, description, globalUser.getUserId());
+                    htdl.addItem(item);
+                    isSuccess = true;
+                    linkTo = "task";
+                }
             }
         } else{
             linkTo = "addTask";
@@ -238,7 +253,7 @@ public class Router extends HttpServlet {
             User registerUser = new User(firstName, lastName, password, email);
             htdl.addUser(registerUser);
             isSuccess=true;
-            linkTo = "task";
+            linkTo = "main";
          //  dispatcher = request.getRequestDispatcher("task.jsp");
 //            try{
 //               dispatcher.forward(request, response);
@@ -262,7 +277,7 @@ public class Router extends HttpServlet {
         try{
             //response.sendRedirect("test.js");
             String actionTask = request.getParameter("page");
-            if (actionTask ==null){
+            if (actionTask ==null || actionTask.equals("")){
                 linkTo="task";
             }
             switch (actionTask){

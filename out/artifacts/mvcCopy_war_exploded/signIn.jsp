@@ -11,14 +11,15 @@
 <body>
 <div data-role="page"  id="signInPage">
     <div data-role="header" data-theme="b">
-        <form action="Router"  method="post">
-            <button  data-role="button" data-icon="home" data-iconpos="left">back</button>
+        <form action="Router" name="home"  method="post">
+            <button  data-role="button" data-icon="home" data-iconpos="left"
+                     onclick="{document.home.submit();}">Home</button>
             <input id="back" type="hidden" name="page" value="main">
         </form>
         <h1>Just Do It</h1>
     </div>
 
-    <form id="Router" action="http://localhost:8080/task.jsp" method="get">
+    <form id="Router" name="melak" action="Router" method="get">
         <div role="main" class="ui-content">
             <h3>Sign In</h3>
             <label for="txt-email">Email Address</label>
@@ -29,7 +30,9 @@
             <!--<input type="checkbox" name="chck-rememberme" id="chck-rememberme" checked="">-->
             <!--<label for="chck-rememberme">Remember me</label>-->
             <!--</fieldset>-->
-            <button type="submit"  data-rel="popup" data-transition="pop"  onsubmit="return true;"  data-position-to="window" id="btn-submit" class="ui-btn ui-btn-b ui-corner-all mc-top-margin-1-5">Submit</button>
+            <button type="button"  data-rel="popup" data-transition="pop"  onsubmit="return true;"  data-position-to="window"
+                    id="btn-submit" class="ui-btn ui-btn-b ui-corner-all mc-top-margin-1-5"
+                    onclick="{document.melak.submit();}">Submit</button>
             <p class="mc-top-margin-1-5"><a href="begin-password-reset.html">Can't access your account?</a></p>
             <div data-role="popup" id="dlg-invalid-credentials" data-dismissible="false" style="max-width:400px;">
                 <div role="main" class="ui-content">

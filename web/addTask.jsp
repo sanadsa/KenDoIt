@@ -14,7 +14,7 @@
     </div><!-- /header -->
 
     <div id="task"  data-role="main">
-        <form action="Router" method="post" id="Router">
+        <form action="Router" name="addTask" method="post" id="Router">
             <div>
                 <label for="itemName">Name</label>
                 <input type="text" id="itemName" name="itemName" value="" placeholder="Task name...">
@@ -24,8 +24,15 @@
                <input  id="description"  name="description" value="" cols="30" rows="10" placeholder="Add description..">
            </div>
 
-            <button type="submit" id="createTaskItem" name="actionTask" value="addTask" class="addBtn">Create</button>
+            <button type="button" id="createTaskItem" name="actionTask" value="addTask"
+                    onclick="{ document.addTask.flag.value='run';document.addTask.submit();}" class="addBtn">Create</button>
+            <button type="button" id="canceledAddTaskItem"
+                    name="actionTask" value="addTask"
+                    onclick="{ document.addTask.flag.value='canceled'; document.addTask.submit();}" class="addBtn">
+                Canceled
+            </button>
             <input id="dataPage" type="hidden" name="page" value="addTask">
+            <input id="flag" type="hidden" name="flag" value="">
         </form>
     </div>
 

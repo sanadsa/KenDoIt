@@ -8,10 +8,8 @@
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
       <secret-storage>master_key</secret-storage>
-      <user-name>melak</user-name>
-      <introspection-schemas>*:information_schema</introspection-schemas>
+      <user-name>admin</user-name>
       <resolve-scope>:</resolve-scope>
-      <unqualified-resolve-schemas>:</unqualified-resolve-schemas>
     </data-source>
   </component>
 </project>

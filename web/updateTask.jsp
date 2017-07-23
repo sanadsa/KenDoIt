@@ -10,7 +10,7 @@
         <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <title>update task</title>
 </head>
-<body onload="alert('load update');">
+<body>
   <%
       String name = (String)request.getAttribute("name");
       String des = (String)request.getAttribute("desc");
@@ -22,18 +22,29 @@
         </div><!-- /header -->
 
         <div id="task">
-            <form action="Router" method="get" name="Router" id="Router">
+            <form action="Router" method="get" name="update" id="Router">
                 <label for="itemName">Name</label>
                 <input type="text" id="itemName" name="itemName" value="<%=name%>">
                 <label for="description">Description</label>
                 <input  id="description"  name="newDescription" value="<%=des%>" cols="30" rows="10">
-                <button type="submit" id="createTaskItem"
-                        name="actionTask" value="addTask" class="addBtn">
+                <button type="button" id="createTaskItem"
+                        name="actionTask" value="addTask"
+                        onclick="{   document.update.flag.value='run';document.update.submit();}" class="addBtn">
                     Update
                 </button>
+                <button type="button" id="canceledUpdateItem"
+                        name="actionTask" value="addTask"
+                        onclick="{document.update.itemName='<%=name%>';
+                                 document.update.newDescription='<%=des%>';
+                                document.update.flag.value='canceled';
+                                document.update.submit();}" class="addBtn">
+                    Canceled
+                </button>
+
                 <input id="dataPage" type="hidden" name="page" value="updateTask">
                 <input id="isUpdate" type="hidden" name="isUpdate" value="task">
                 <input id="taskId" type="hidden" name="taskId" value="<%=taskId%>">
+                <input id="flag" type="hidden" name="flag" value="">
             </form>
         </div><!-- /task -->
 

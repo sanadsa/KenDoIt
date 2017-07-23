@@ -14,19 +14,30 @@
 %>
     <div data-role="page">
         <div data-role="header" data-theme="b">
+
             <h1>Delete Task</h1>
         </div><!-- /header -->
 
         <div id="task">
-            <form action="Router" method="post" name="Router" id="Router">
+            <form action="Router" method="post" name="delete" id="Router">
                 <label for="itemName">Name</label>
                 <label for="itemName" id="itemName" name="itemName"><%=name%></label>
                 <label for="description">Description</label>
                 <label id="description"  name="description"><%=des%></label>
-                <button type="submit" id="deleteItem" name="actionTask" value="deleteTask" class="addBtn">Delete</button>
+                <button type="button" id="deleteItem" name="actionTask" value="deleteTask"
+                        onclick="{ document.delete.flag.value='run';document.delete.submit();}" class="addBtn">Delete</button>
+                <button type="button" id="canceledDeletedItem"
+                        name="actionTask" value="addTask"
+                        onclick="{document.delete.itemName='<%=name%>';
+                                document.delete.newDescription='<%=des%>';
+                                document.delete.flag.value='canceled';
+                                document.delete.submit();}" class="addBtn">
+                    Canceled
+                </button>
                 <input id="dataPage" type="hidden" name="page" value="deleteTask">
                 <input id="isDelete" type="hidden" name="isDelete" value="true">
                 <input id="taskId" type="hidden" name="deleteId" value="<%=taskId%>">
+                <input id="flag" type="hidden" name="flag" value="">
             </form>
         </div><!-- /task -->
 

@@ -10,13 +10,14 @@
 <body>
 <div data-role="page" id="signUpPage">
     <div data-role="header" data-theme="b">
-        <form action="Router" method="post">
-            <button data-role="button" data-icon="home" data-iconpos="left">back</button>
+        <form action="Router" name="signUpHome" method="post">
+            <button data-role="button" data-icon="home" data-iconpos="left"
+                    onclick="{document.signUpHome.submit();}">Home</button>
             <input id="back" type="hidden" name="page" value="main">
         </form>
     </div>
         <h1>Just Do It</h1>
-    <form id="Router" action="Router" method="post">
+    <form id="Router" name="signUp" action="Router" method="post">
         <div role="main" class="ui-content">
             <h3>Sign Up</h3>
             <label for="txt-first-name">First Name</label>
@@ -29,7 +30,9 @@
             <input type="password" name="txt-password" id="txt-password" value="">
             <label for="txt-password-confirm">Confirm Password</label>
             <input type="password" name="txt-password-confirm" id="txt-password-confirm" value="">
-            <button type="submit"  data-rel="popup" data-transition="pop" data-position-to="window" id="btn-submit" class="ui-btn ui-btn-b ui-corner-all mc-top-margin-1-5">Submit</button>
+            <button type="button"  data-rel="popup" data-transition="pop" data-position-to="window"
+                    id="btn-submit" class="ui-btn ui-btn-b ui-corner-all mc-top-margin-1-5"
+                    onclick="{document.signUp.submit();}">Submit</button>
             <div data-role="popup" id="dlg-sign-up-sent" data-dismissible="false" style="max-width:400px;">
                 <div data-role="header">
                     <h1>Almost done...</h1>
