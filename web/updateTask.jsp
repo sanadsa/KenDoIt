@@ -1,4 +1,4 @@
-    <%@ page import="il.ac.hit.mvcdemo.model.Router" %>
+    <%@ page import="il.ac.hit.mvcdemo.controller.Router" %>
     <%@ page import="il.ac.hit.mvcdemo.model.HibernateToDoListDAO" %>
     <%@ page import="il.ac.hit.mvcdemo.model.User" %>
     <%@ page import="il.ac.hit.mvcdemo.model.Items" %>

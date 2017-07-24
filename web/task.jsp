@@ -2,7 +2,7 @@
 <%@ page import="il.ac.hit.mvcdemo.model.HibernateToDoListDAO" %>
 <%@ page import="il.ac.hit.mvcdemo.model.User" %>
 <%@ page import="javax.jws.soap.SOAPBinding" %>
-<%@ page import="il.ac.hit.mvcdemo.model.Router" %>
+<%@ page import="il.ac.hit.mvcdemo.controller.Router" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -80,35 +80,37 @@
 
     });
 
-    $("li").click(function(){
+    // when task is clicked (for update or delete) change the li color to blue
+    $('li').click(function(){
         setAction($(this)[0]);
-        if ($(this).css("background-color") === "rgba(0, 0, 0, 0)") {
-            $(this).css("background-color", "rgb(23, 150, 207)");
+        if ($(this).css('background-color') === 'rgba(0, 0, 0, 0)') {
+            $(this).css('background-color', 'rgb(23, 150, 207)');
         } else {
-            $(this).css("background-color", "rgba(0, 0, 0, 0)");
+            $(this).css('background-color', 'rgba(0, 0, 0, 0)');
         }
-        for(var i=0;i<$("li").length;i++){
-            if($("li")[i]!=$(this)[0])
-                $($("li")[i]).css("background-color", "rgba(0, 0, 0, 0)");
+        for(var i=0;i<$('li').length;i++){
+            if($('li')[i]!=$(this)[0])
+                $($('li')[i]).css('background-color', 'rgba(0, 0, 0, 0)');
         }
     });
+
+    // get the clicked task (for update or delete)
     function getSelectedTask(){
         if(currentSelectedTask!=null && currentSelectedTask!= undefined)
         {
-            console.log("update =====> "+currentSelectedTask);
+            console.log('update =====> '+currentSelectedTask);
             $('#taskId').val(currentSelectedTask);
             $('#taskDeleteId').val(currentSelectedTask);
         }
     };
+
     function setAction(element){
         currentSelectedTask = element.id;
-
     };
 
     function openDialog() {
-        var form=$("#task").fadeIn(2000);
+        var form=$('#task').fadeIn(2000);
     }
-
 </script>
 </body>
 </html>

@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <script src="test.js"></script>
     <title>ToDoList</title>
 </head>
 <body>
@@ -26,10 +25,6 @@
             <input type="text" name="txt-email" id="txt-email" value="">
             <label for="txt-password">Password</label>
             <input type="password" name="txt-password" id="txt-password" value="">
-            <!--<fieldset data-role="controlgroup">-->
-            <!--<input type="checkbox" name="chck-rememberme" id="chck-rememberme" checked="">-->
-            <!--<label for="chck-rememberme">Remember me</label>-->
-            <!--</fieldset>-->
             <button type="button"  data-rel="popup" data-transition="pop"  onsubmit="return true;"  data-position-to="window"
                     id="btn-submit" class="ui-btn ui-btn-b ui-corner-all mc-top-margin-1-5"
                     onclick="{document.melak.submit();}">Submit</button>

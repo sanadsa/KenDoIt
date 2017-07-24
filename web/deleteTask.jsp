@@ -14,16 +14,16 @@
 %>
     <div data-role="page">
         <div data-role="header" data-theme="b">
-
             <h1>Delete Task</h1>
         </div><!-- /header -->
 
         <div id="task">
             <form action="Router" method="post" name="delete" id="Router">
-                <label for="itemName">Name</label>
-                <label for="itemName" id="itemName" name="itemName"><%=name%></label>
-                <label for="description">Description</label>
-                <label id="description"  name="description"><%=des%></label>
+                <p align="center"><b>Are you sure you want to delete this task?</b></p>
+                <p align="center"><b>Name: </b><%=name%></p>
+                <!--<label for="itemName" id="itemName" name="itemName"><%=name%></label>-->
+                <p align="center"><b>Description: </b><%=des%></p>
+                <!--<label id="description"  name="description"><%=des%></label>-->
                 <button type="button" id="deleteItem" name="actionTask" value="deleteTask"
                         onclick="{ document.delete.flag.value='run';document.delete.submit();}" class="addBtn">Delete</button>
                 <button type="button" id="canceledDeletedItem"
@@ -32,7 +32,7 @@
                                 document.delete.newDescription='<%=des%>';
                                 document.delete.flag.value='canceled';
                                 document.delete.submit();}" class="addBtn">
-                    Canceled
+                    Cancel
                 </button>
                 <input id="dataPage" type="hidden" name="page" value="deleteTask">
                 <input id="isDelete" type="hidden" name="isDelete" value="true">

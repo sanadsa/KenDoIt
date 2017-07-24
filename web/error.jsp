@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-<%@ page import="il.ac.hit.mvcdemo.model.Router" %>
+<%@ page import="il.ac.hit.mvcdemo.controller.Router" %>
 <%@ page import="il.ac.hit.mvcdemo.model.HibernateToDoListDAO" %>
 <%@ page import="il.ac.hit.mvcdemo.model.User" %>
 <%@ page import="il.ac.hit.mvcdemo.model.Items" %>
@@ -23,20 +23,21 @@
     String errorMessage = (String)request.getAttribute("error");
 %>
 <div data-role="page">
-    <div data-role="header">
-        <h1>Page Title</h1>
+    <div data-role="header" data-theme="a">
+        <h1>Error</h1>
     </div>
     <div data-role="content">
-        Page Content
-        <div data-role="popup" id="myPopup" data-history="false">
-            <p><%=errorMessage%><p>
-        </div>
-        <script type="text/javascript" language="JavaScript">
-
-            $(document).bind("pageinit", function(){
-                $("#myPopup").popup( "open" )
-            });
-        </script>
+        <p><b>Error description:</b></p>
+        <%if (errorMessage == "null") {
+            errorMessage = "something went wrong, try again in a few seconds";
+        %><p align="center"><b><%=errorMessage%></b><p><%
+        } else {%>
+        <p align="center"><%=errorMessage%><p>
+        <%}%>
+    </div>
+    <div data-role="footer" data-theme="a">
+        <h6 class="mc-text-center">Copyleft Sanad & Melak <span style="display:inline-block;
+  transform: rotate(180deg);" class="copyleft">&copy;</span> 2017</h6>
     </div>
 </div>
 </body>
