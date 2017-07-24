@@ -1,8 +1,7 @@
 <component name="ArtifactManager">
-  <artifact type="war" name="mvcCopy:war exploded">
+  <artifact type="exploded-war" name="mvcCopy:war exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/mvcCopy_war_exploded</output-path>
-    <root id="archive" name="mvcCopy_war exploded.war">
-      <element id="javaee-facet-resources" facet="mvcCopy/web/Web" />
+    <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="mvcCopy" />
@@ -11,6 +10,7 @@
           <element id="library" level="project" name="antlr-2.7.6" />
         </element>
       </element>
+      <element id="javaee-facet-resources" facet="mvcCopy/web/Web" />
     </root>
   </artifact>
 </component>

@@ -28,7 +28,7 @@
     </div>
     <div data-role="content">
         <p><b>Error description:</b></p>
-        <%if (errorMessage == "null") {
+        <%if (errorMessage==null||errorMessage.equals("")||errorMessage == "null") {
             errorMessage = "something went wrong, try again in a few seconds";
         %><p align="center"><b><%=errorMessage%></b><p><%
         } else {%>

@@ -309,6 +309,9 @@ public class Router extends HttpServlet {
             String actionTask = request.getParameter("page");
             if (actionTask ==null || actionTask.equals("")){
                 linkTo="task";
+            }if((!request.isRequestedSessionIdFromURL() && actionTask==null) ||actionTask.equals(""))
+            {
+                actionTask="signIn";
             }
             switch (actionTask){
                 case "addTask":
@@ -319,6 +322,9 @@ public class Router extends HttpServlet {
                     break;
                 case "updateTask":
                     linkTo = "updateTask";
+                    break;
+                case "signIn":
+                    linkTo = "signIn";
                     break;
             }
         } catch (ToDoListException todo) {
@@ -343,8 +349,8 @@ public class Router extends HttpServlet {
                 isSuccess = true;
                 linkTo = "task";
                 globalUser = htdl.getUser(email);
-            }
 
+            }
         } catch (ToDoListException todo) {
             request.setAttribute("error", todo.getMessage().toString());
             linkTo = "error";

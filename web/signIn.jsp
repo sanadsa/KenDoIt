@@ -58,6 +58,7 @@
         $('#button_login').addClass('ui-btn-right').toggle();
         $(this).removeClass('ui-btn-right').toggle();
     });
+
 </script>
 </body>
 </html>
