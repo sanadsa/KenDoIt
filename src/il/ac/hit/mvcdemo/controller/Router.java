@@ -281,14 +281,33 @@ public class Router extends HttpServlet {
             String email = request.getParameter("txt-email");
             String password = request.getParameter("txt-password");
             String passwordConfirm = (String) request.getParameter("txt-password-confirm");
-
-            //register new user
-            if (passwordConfirm.equals(password) && !password.equals("") && !passwordConfirm.equals("")
-                    && !firstName.equals("") && !lastName.equals("") && !email.equals("")) {
-                User registerUser = new User(firstName, lastName, password, email);
-                htdl.addUser(registerUser);
+            String isregister=(String)request.getParameter("registerSuccess");
+            if (isregister!=null && isregister.equals("success"))
+            {
                 isSuccess = true;
                 linkTo = "main";
+            }
+            else {
+                if (passwordConfirm.equals(password) && !password.equals("") && !passwordConfirm.equals("")
+                        && !firstName.equals("") && !lastName.equals("") && !email.equals("")) {
+                    User registerUser = new User(firstName, lastName, password, email);
+                    htdl.addUser(registerUser);
+                    isSuccess = true;
+                    // linkTo = "main";
+                    request.setAttribute("isRegister", true);
+                } else {
+
+                    if (firstName.equals("") && lastName.equals("")) {
+                        request.setAttribute("signUpResult", true);
+                        request.setAttribute("title", "Empty fields");
+                        request.setAttribute("message", "one or more of inputs are empty");
+                    } else if (!passwordConfirm.equals(password) || passwordConfirm.equals(password) || password.equals("")) {
+                        request.setAttribute("signUpResult", true);
+                        request.setAttribute("title", "Unmatched passwords!");
+                        request.setAttribute("message", "password confirmed not match!");
+                    }
+                    linkTo = "signUp";
+                }
             }
         } catch (ToDoListException todo) {
             request.setAttribute("error", todo.getMessage().toString());
@@ -350,6 +369,8 @@ public class Router extends HttpServlet {
                 linkTo = "task";
                 globalUser = htdl.getUser(email);
 
+            }else{
+                request.setAttribute("loginResult", true);
             }
         } catch (ToDoListException todo) {
             request.setAttribute("error", todo.getMessage().toString());

@@ -11,14 +11,14 @@
 <div data-role="page"  id="signInPage">
     <div data-role="header" data-theme="b">
         <form action="Router" name="home"  method="post">
-            <button  data-role="button" data-icon="home" data-iconpos="left"
+            <button type="button"  data-role="button" data-icon="home" data-iconpos="left"
                      onclick="{document.home.submit();}">Home</button>
             <input id="back" type="hidden" name="page" value="main">
         </form>
         <h1>Just Do It</h1>
     </div>
 
-    <form id="Router" name="melak" action="Router" method="get">
+    <form id="Router" name="melak" action="Router" method="post">
         <div role="main" class="ui-content">
             <h3>Sign In</h3>
             <label for="txt-email">Email Address</label>
@@ -29,13 +29,20 @@
                     id="btn-submit" class="ui-btn ui-btn-b ui-corner-all mc-top-margin-1-5"
                     onclick="{document.melak.submit();}">Submit</button>
             <p class="mc-top-margin-1-5"><a href="begin-password-reset.html">Can't access your account?</a></p>
-            <div data-role="popup" id="dlg-invalid-credentials" data-dismissible="false" style="max-width:400px;">
+            <%
+                if(request.getAttribute("loginResult") != null){
+            %>
+            <div  id="dlg-invalid-credentials"  class="pop ui-popup ui-body-inherit ui-overlay-shadow ui-corner-all" data-dismissible="false"
+                  style="max-width:400px;position: absolute;height: 200px;width: 400px;margin: -135px 0 0 -200px;top: 50%;left: 50%;">
                 <div role="main" class="ui-content">
-                    <h3 class="mc-text-danger">Login Failed</h3>
+                    <h3 class="mc-text-danger" style="color:red">Login Failed</h3>
                     <p>Did you enter the right credentials?</p>
                     <div class="mc-text-center"><a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b mc-top-margin-1-5">OK</a></div>
                 </div>
             </div>
+            <%
+                }
+            %>
             <input id="dataPage" type="hidden" name="page" value="signIn">
         </div><!-- /content -->
     </form>
@@ -43,9 +50,11 @@
         <h6 class="mc-text-center">Copyleft Sanad & Melak <span style="display:inline-block;
   transform: rotate(180deg);" class="copyleft">&copy;</span> 2017</h6>
     </div>
+
 </div><!-- /page -->
 
 <script type="text/javascript">
+
     $(document).on('pagebeforeshow', function () {
         $('#button_logout').toggle();
     });

@@ -24,16 +24,21 @@
                 <!--<label for="itemName" id="itemName" name="itemName"><%=name%></label>-->
                 <p align="center"><b>Description: </b><%=des%></p>
                 <!--<label id="description"  name="description"><%=des%></label>-->
-                <button type="button" id="deleteItem" name="actionTask" value="deleteTask"
-                        onclick="{ document.delete.flag.value='run';document.delete.submit();}" class="addBtn">Delete</button>
-                <button type="button" id="canceledDeletedItem"
-                        name="actionTask" value="addTask"
-                        onclick="{document.delete.itemName='<%=name%>';
-                                document.delete.newDescription='<%=des%>';
-                                document.delete.flag.value='canceled';
-                                document.delete.submit();}" class="addBtn">
-                    Cancel
-                </button>
+                <a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-delete ui-btn-icon-left ui-btn-b">Delete task</a>
+                <div data-role="popup" id="popupDialog" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
+                        <div data-role="header" data-theme="a">
+                        <h1>Delete Page?</h1>
+                        </div>
+                        <div role="main" class="ui-content">
+                            <h3 class="ui-title" style="color: #FA7922">Are you sure you want to delete this item?</h3>
+                        <p>This action cannot be undone.</p>
+                            <button href="#"  name="actionTask" value="addTask"
+                                    onclick="{document.delete.itemName='<%=name%>';document.delete.newDescription='<%=des%>';document.delete.flag.value='canceled';document.delete.submit();}" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</button>
+                            <button type="button"  name="actionTask" value="deleteTask"
+                                    onclick="{ document.delete.flag.value='run';document.delete.submit();}" href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Delete</button>
+                        </div>
+                </div>
+
                 <input id="dataPage" type="hidden" name="page" value="deleteTask">
                 <input id="isDelete" type="hidden" name="isDelete" value="true">
                 <input id="taskId" type="hidden" name="deleteId" value="<%=taskId%>">
@@ -45,6 +50,8 @@
             <h6 class="mc-text-center">Copyleft Sanad & Melak <span style="display:inline-block;
   transform: rotate(180deg);" class="copyleft">&copy;</span> 2017</h6>
         </div>
+
     </div><!-- /page -->
+
 </body>
 </html>

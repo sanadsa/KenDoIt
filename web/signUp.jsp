@@ -33,18 +33,43 @@
             <button type="button"  data-rel="popup" data-transition="pop" data-position-to="window"
                     id="btn-submit" class="ui-btn ui-btn-b ui-corner-all mc-top-margin-1-5"
                     onclick="{document.signUp.submit();}">Submit</button>
-            <div data-role="popup" id="dlg-sign-up-sent" data-dismissible="false" style="max-width:400px;">
-                <div data-role="header">
-                    <h1>Almost done...</h1>
+            <%
+                if(request.getAttribute("isRegister") != null){
+            %>
+            <div  id="dlg-sign-up-sent" class="ui-popup ui-body-inherit ui-overlay-shadow"  data-dismissible="false"
+                style="max-width:400px;position: absolute;height: 33%;width: 400px;margin: -135px 0 0 -200px;top: 50%;left: 50%;">
+                <div data-role="header" role="banner" class="ui-header ui-bar-inherit">
+                    <h1 class="ui-title">Almost done...</h1>
                 </div>
                 <div role="main" class="ui-content">
-                    <h3>congratulations you have successfully registered</h3>
+                    <h3 style="color: blue">congratulations you have successfully registered</h3>
                     <p>Let's go and create a Weekly Attack Plan.</p>
-                    <div class="mc-text-center"><a href="sign-in.html" class="ui-btn ui-corner-all ui-shadow ui-btn-b mc-top-margin-1-5">OK</a></div>
+                    <div class="mc-text-center"><button id="popupSuccessBtn" type="button"  class="ui-btn ui-corner-all ui-shadow ui-btn-b mc-top-margin-1-5">OK</button></div>
                 </div>
             </div>
+            <%
+                }
+            %>
+
+            <%
+                if(request.getAttribute("signUpResult") != null){
+                    String message=(String)request.getAttribute("message");
+                    String title=(String)request.getAttribute("title");
+            %>
+            <div  id="dlg-invalid-inputs"  class="pop ui-popup ui-body-inherit ui-overlay-shadow ui-corner-all" data-dismissible="false"
+                  style="max-width:400px;position: absolute;height: 200px;width: 400px;margin: -135px 0 0 -200px;top: 50%;left: 50%;">
+                <div role="main" class="ui-content">
+                    <h3 class="mc-text-danger" style="color:red"><%=title%></h3>
+                    <p><%=message%> </p>
+                    <div class="mc-text-center"><button id="popupOkBtn" href="#"  onclick="{$('#dlg-invalid-inputs').popup('close')}"  class="ui-btn ui-corner-all ui-shadow ui-btn-b mc-top-margin-1-5">OK</button></div>
+                </div>
+            </div>
+            <%
+                }
+            %>
         </div><!-- /content -->
         <input id="dataPage" type="hidden" name="page" value="signUp">
+        <input id="registerSuccess" type="hidden" name="registerSuccess" value="">
     </form>
     <div data-role="footer" data-theme="b">
         <h6 class="mc-text-center">Copyleft Sanad & Melak <span style="display:inline-block;
@@ -55,10 +80,17 @@
     %>
 </div><!-- /page -->
 <script type="text/javascript">
-    var alert=<%=alert%>;
-    if(alert=="true"){
-        $("#dlg-sign-up-sen").pop();
-    }
+
+    $(document).on('click','#popupSuccessBtn' ,function () {
+        $('#dlg-sign-up-sent').popup();
+        $('#dlg-sign-up-sent').popup('close');
+        document.signUp.registerSuccess.value='success';
+        document.signUp.submit();
+    });
+    $(document).on('click','#popupOkBtn' ,function () {
+        $('#dlg-invalid-inputs').popup();
+        $('#dlg-invalid-inputs').popup('close');
+    });
     $(document).on("pagecreate","#signUpPage", function(){
         console.log("111  ============================>");
         $("#btn-submit").on("click", function(){
