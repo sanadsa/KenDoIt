@@ -25,7 +25,7 @@
                 <!--<label for="itemName" id="itemName" name="itemName"><%=name%></label>-->
                 <p align="center"><b>Description: </b><%=des%></p>
                 <!--<label id="description"  name="description"><%=des%></label>-->
-                <a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-delete ui-btn-icon-left ui-btn-b">Delete task</a>
+                <a href="#popupDialog" data-rel="popup" style=" margin: 0 auto; max-width: 100px;" data-position-to="window" data-transition="pop" class="ui-btn ui-corner-all ui-shadow ui-btn-center  ui-icon-delete ui-btn-icon-left ui-btn-b">Delete task</a>
                 <div data-role="popup" id="popupDialog" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
                         <div data-role="header" data-theme="a">
                         <h1>Delete Page?</h1>
@@ -47,7 +47,7 @@
             </form>
         </div><!-- /task -->
 
-        <div data-role="footer" data-theme="b">
+        <div data-role="footer" data-theme="b" data-position="fixed">
             <h6 class="mc-text-center">Copyleft Sanad & Melak <span style="display:inline-block;
   transform: rotate(180deg);" class="copyleft">&copy;</span> 2017</h6>
         </div>

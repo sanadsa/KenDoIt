@@ -1,3 +1,6 @@
+<%@ page import="il.ac.hit.mvcdemo.model.HibernateToDoListDAO" %>
+<%@ page import="il.ac.hit.mvcdemo.model.User" %>
+<%@ page import="il.ac.hit.mvcdemo.controller.Router" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -32,6 +35,7 @@
             <p class="mc-top-margin-1-5"><a href="begin-password-reset.html">Can't access your account?</a></p>
             <%
                 if(request.getAttribute("loginResult") != null){
+
             %>
             <div  id="dlg-invalid-credentials"  class="pop ui-popup ui-body-inherit ui-overlay-shadow ui-corner-all" data-dismissible="false"
                   style="max-width:400px;position: absolute;height: 200px;width: 400px;margin: -135px 0 0 -200px;top: 50%;left: 50%;">
@@ -42,6 +46,24 @@
                 </div>
             </div>
             <%
+                }else
+                    {
+                        HibernateToDoListDAO htdl = HibernateToDoListDAO.getInstance();
+                        User currentUser = Router.getCurrentUser();
+                        if(currentUser!=null && application.getAttribute(Integer.toString(currentUser.getUserId()))!=null){
+
+
+            %>
+            <div  id="dlg-invalid-credentials"  class="pop ui-popup ui-body-inherit ui-overlay-shadow ui-corner-all" data-dismissible="false"
+                  style="max-width:400px;position: absolute;height: 200px;width: 400px;margin: -135px 0 0 -200px;top: 50%;left: 50%;">
+                <div role="main" class="ui-content">
+                    <h3 class="mc-text-danger" style="color:red">Are you already Login </h3>
+                    <p>Please log out from the other device then retry again</p>
+                    <div class="mc-text-center"><a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b mc-top-margin-1-5">OK</a></div>
+                </div>
+            </div>
+            <%
+                    }
                 }
             %>
             <input id="dataPage" type="hidden" name="page" value="signIn">
