@@ -1,6 +1,3 @@
-<%@ page import="il.ac.hit.mvcdemo.model.HibernateToDoListDAO" %>
-<%@ page import="il.ac.hit.mvcdemo.model.User" %>
-<%@ page import="il.ac.hit.mvcdemo.controller.Router" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -34,7 +31,7 @@
                     onclick="{document.melak.submit();}">Submit</button>
             <p class="mc-top-margin-1-5"><a href="begin-password-reset.html">Can't access your account?</a></p>
             <%
-                if(request.getAttribute("loginResult") != null){
+                        if(request.getAttribute("loginResult") != null){
 
             %>
             <div  id="dlg-invalid-credentials"  class="pop ui-popup ui-body-inherit ui-overlay-shadow ui-corner-all" data-dismissible="false"
@@ -46,26 +43,9 @@
                 </div>
             </div>
             <%
-                }else
-                    {
-                        HibernateToDoListDAO htdl = HibernateToDoListDAO.getInstance();
-                        User currentUser = Router.getCurrentUser();
-                        if(currentUser!=null && application.getAttribute(Integer.toString(currentUser.getUserId()))!=null){
-
-
-            %>
-            <div  id="dlg-invalid-credentials"  class="pop ui-popup ui-body-inherit ui-overlay-shadow ui-corner-all" data-dismissible="false"
-                  style="max-width:400px;position: absolute;height: 200px;width: 400px;margin: -135px 0 0 -200px;top: 50%;left: 50%;">
-                <div role="main" class="ui-content">
-                    <h3 class="mc-text-danger" style="color:red">Are you already Login </h3>
-                    <p>Please log out from the other device then retry again</p>
-                    <div class="mc-text-center"><a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b mc-top-margin-1-5">OK</a></div>
-                </div>
-            </div>
-            <%
-                    }
                 }
             %>
+
             <input id="dataPage" type="hidden" name="page" value="signIn">
         </div><!-- /content -->
     </form>
@@ -78,14 +58,16 @@
 
 <script type="text/javascript">
 
+    // toggle between to options logout or home
     $(document).on('pagebeforeshow', function () {
         $('#button_logout').toggle();
     });
+    // handle when click login we change the logo
     $(document).on('click', '#button_login', function () {
         $('#button_logout').addClass('ui-btn-right').toggle();
         $(this).removeClass('ui-btn-right').toggle();
     });
-
+    // handle when click logout we change the logo
     $(document).on('click', '#button_logout', function () {
         $('#button_login').addClass('ui-btn-right').toggle();
         $(this).removeClass('ui-btn-right').toggle();

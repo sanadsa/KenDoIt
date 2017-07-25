@@ -18,36 +18,27 @@
         <h1>Just Do It</h1>
         <form action="Router" name="logOut" method="get">
             <button type="button"  data-role="button" id="button_logout" data-icon="false"
-                    data-iconpos="false" class="ui-btn-right"
-                    onclick="{
-                        <%
-                         User currentUser = Router.getCurrentUser();
-                          if(currentUser!=null && application.getAttribute(Integer.toString(currentUser.getUserId()))!=null)
-                          {
-                              application.removeAttribute(Integer.toString(currentUser.getUserId()));
-                          }
-                        %> document.logOut.submit();
-                        }">logout</button>
+                    data-iconpos="false" class="ui-btn-right" onclick="{document.logOut.submit();}">logout</button>
             <input type="hidden" name="page" value="logout" />
         </form>
     </div><!-- /header -->
 
         <div id="actionMenu" data-role="content">
             <div class="ui-grid-b">
-                <div class="ui-block-c" style="margin-right: 10px;max-width: 32%;">
+                <div class="ui-block-c" style="margin-right: 3%;max-width: 30%;">
                 <form action="Router" method="get">
                     <button id="addInput"  type="submit" name="addTask" class="action" data-theme="c">Add New Task</button>
                     <input  type="hidden" name="page" value="addTask">
                 </form>
                 </div>
-                <div class="ui-block-c" style="margin-right: 10px;max-width: 32%;">
+                <div class="ui-block-c" style="margin-right: 3%;max-width: 30%;">
                 <form action="Router" method="get">
                     <button id="updateInput" type="submit"  name="updateTask" onclick="getSelectedTask()"  class="updateBtn action">Update Task</button>
                     <input  type="hidden" name="page" value="updateTask">
                     <input  type="hidden"  name="update" value="" id="taskId">
                 </form>
                 </div>
-                <div class="ui-block-c" style="margin-right: 10px;max-width: 32%;">
+                <div class="ui-block-c" style="margin-right: 3%;max-width: 30%;">
                 <form action="Router" method="get">
                     <button id="deleteInput" type="submit" name="deleteTask" onclick="getSelectedTask()" class="deleteBtn action">Delete Task</button>
                     <input  type="hidden" name="page" value="deleteTask">
@@ -59,6 +50,7 @@
 
     <ul id="myUL" data-role="listview" data-theme="a" data-filter="true">
         <%
+            User currentUser = Router.getCurrentUser();
             HibernateToDoListDAO htdl = HibernateToDoListDAO.getInstance();
             application.setAttribute(Integer.toString(currentUser.getUserId()),currentUser.toString());
             Items [] items=htdl.getItems(currentUser) ;
@@ -102,11 +94,10 @@
         }
     });
 
-    // get the clicked task (for update or delete)
+    // get the select id task (for update or delete)
     function getSelectedTask(){
         if(currentSelectedTask!=null && currentSelectedTask!= undefined)
         {
-            console.log('update =====> '+currentSelectedTask);
             $('#taskId').val(currentSelectedTask);
             $('#taskDeleteId').val(currentSelectedTask);
         }

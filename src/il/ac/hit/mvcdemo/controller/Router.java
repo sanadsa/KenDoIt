@@ -21,6 +21,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 /**
@@ -34,6 +36,8 @@ public class Router extends HttpServlet {
     //creating the instance for the DAO object.
     HibernateToDoListDAO htdl = HibernateToDoListDAO.getInstance();
     static User globalUser;
+    public static Map<String, String> sessions=new HashMap<String,String>();
+    public static HttpSession sessionUser;
 
     /**
      * Servlet init() method implementation
@@ -54,6 +58,10 @@ public class Router extends HttpServlet {
         if (globalUser!=null)
            return globalUser;
         else return null;
+    }
+
+    public static String getSessionUser() {
+        return sessionUser.getId();
     }
 
     /**
@@ -369,6 +377,7 @@ public class Router extends HttpServlet {
                 isSuccess = true;
                 linkTo = "task";
                 globalUser = htdl.getUser(email);
+                sessionUser = request.getSession();
 
             }else{
                 request.setAttribute("loginResult", true);
